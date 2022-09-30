@@ -12,9 +12,11 @@ Since the official website of my school has no real time tracker to tell me how 
 
 
 **Cookies**
+
 p.s. this website will use cookies purely to store the dots representing swipes in a given day, so you can keep the information going forward in a week; there's no tracking cookies - you can confirm in the source code if you're skeptical.
 
 
 **Website**
+
 https://jinkang-0.github.io/mealswipe-tracker
 
