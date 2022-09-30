@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Meal Swipe Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- svg for theme switch -->
+    <button id="theme-switch">
+        <svg id="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 1.5C6.75 1.5 2.25 5.25 2.25 11.25C2.25 17.25 6.75 21.75 12.75 21.75C18.75 21.75 22.5 17.25 22.5 13.5C14.25 18.75 5.25 9.75 10.5 1.5Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        <svg id="sun-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 16.875C14.6924 16.875 16.875 14.6924 16.875 12C16.875 9.30761 14.6924 7.125 12 7.125C9.30761 7.125 7.125 9.30761 7.125 12C7.125 14.6924 9.30761 16.875 12 16.875Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.99536 19.7455L4.74536 18.9955M18.9954 18.9955L19.7454 19.7455M18.9954 4.74548L19.7454 3.99548M4.74536 4.74548L3.99536 3.99548M3.24536 11.8705H1.74536M21.9954 11.8705H20.4954M11.8704 20.4955V21.9955M11.8704 1.74548V3.24548" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <!-- notes group: switch between notes -->
+    <div class="notes">
+        <div class="note active" id="blue-note">
+            <p>Blue</p>
+            <hr>
+            <section>
+                <div>
+                    <p>Swipes/wk</p>
+                    <p>Used swipes:</p>
+                    <p>Remaining swipes:</p>
+                </div>
+                <div class="right">
+                    <p id="blue:swipes-per-week">12</p>
+                    <p id="blue:used-swipes">0</p>
+                    <p id="blue:remaining-swipes">12</p>
+                </div>
+            </section>
+        </div>
+        <div class="note alternate disabled" id="gold-note">
+            <p>Gold</p>
+            <hr>
+            <section>
+                <div>
+                    <p>Swipes/wk</p>
+                    <p>Used swipes:</p>
+                    <p>Remaining swipes:</p>
+                </div>
+                <div class="right">
+                    <p id="gold:swipes-per-week">10</p>
+                    <p id="gold:used-swipes">0</p>
+                    <p id="gold:remaining-swipes">10</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- body container -->
+    <div class="container">
+        <!-- divider between dots and date buttons -->
+        <section>
+            <!-- dots group, empty, add dots with js -->
+            <div class="dots-container">
+                <div class="dots dots-sun"></div>
+                <div class="dots dots-mon"></div>
+                <div class="dots dots-tue"></div>
+                <div class="dots dots-wed"></div>
+                <div class="dots dots-thu"></div>
+                <div class="dots dots-fri"></div>
+                <div class="dots dots-sat"></div>
+            </div>
+            <div class="divider">
+                <!-- trash can to clear dots -->
+                <svg id="trash" width="48" height="48" viewBox="0 0 48 48" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6V8H8V12H10V38C10 39.0609 10.4214 40.0783 11.1716 40.8284C11.9217 41.5786 12.9391 42 14 42H34C35.0609 42 36.0783 41.5786 36.8284 40.8284C37.5786 40.0783 38 39.0609 38 38V12H40V8H30V6H18ZM14 12H34V38H14V12ZM18 16V34H22V16H18ZM26 16V34H30V16H26Z"/>
+                </svg>
+            </div>
+            <!-- buttons group, add functionality with js -->
+            <div class="buttons">
+                <button class="day">Sun</button>
+                <button class="day">Mon</button>
+                <button class="day">Tue</button>
+                <button class="day">Wed</button>
+                <button class="day">Thu</button>
+                <button class="day">Fri</button>
+                <button class="day">Sat</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

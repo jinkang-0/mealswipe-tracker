@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #D2D8EB;
+    --primary: #022B3A;
+    --primary2: #1F7A8C;
+    --note: #FFFADE;
+    --note2: #F3EED3;
+    --secondary: #FFFFFF;
+}
+
+body.dark {
+    --background: #022B3A;
+    --primary: #E1E5F2;
+    --primary2: #C4C8D2;
+    --note: #3D494E;
+    --note2: #303A3E;
+    --secondary: #1F7A8C;
+}
+
+body {
+    background: var(--background);
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+    transition: 200ms;
+}
+
+
+
+/* 
+    THEME SWITCH
+*/
+
+#theme-switch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 1rem;
+    width: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#theme-switch svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    stroke: var(--primary);
+}
+
+#theme-switch svg > path {
+    transition: 200ms;
+}
+
+#theme-switch:hover svg > path {
+    stroke: var(--primary2);
+}
+
+
+
+/* 
+    NOTES GROUP
+*/
+
+.notes {
+    position: absolute;
+    right: 0;
+    margin: 3rem;
+}
+
+.note {
+    position: relative;
+    padding: .5rem 1rem;
+    width: 14rem;
+    user-select: none;
+    cursor: pointer;
+    background: var(--note);
+}
+
+.note.alternate {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    margin-left: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.note.disabled {
+    z-index: -1;
+    background: var(--note2);
+    color: var(--primary2);
+}
+
+.note.disabled::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50%;
+    background: var(--note2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.note section {
+    display: flex;
+}
+
+.note section div.right {
+    margin-left: auto;
+    text-align: right;
+}
+
+.note hr {
+    border: none;
+    background: var(--primary);
+    height: 1px;
+    margin: 5px 0;
+}
+
+
+
+/* 
+    CONTAINER
+*/
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.container > section {
+    display: block;
+    margin-bottom: 7rem;
+}
+
+.divider {
+    position: relative;
+    width: 65%;
+    height: 2px;
+    margin: auto;
+    margin-bottom: 1rem;
+    border: 0;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+
+
+/* 
+    DOTS
+*/
+
+.dots-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: auto;
+    width: 60%;
+    gap: 2rem;
+}
+
+.dots {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.dots > svg {
+    cursor: pointer;
+    transition: 100ms;
+    fill: var(--primary);
+}
+
+.dots > svg:hover {
+    fill: var(--primary2);
+}
+
+
+
+/* 
+    BUTTONS: DAY OF THE WEEK
+*/
+
+.buttons {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: auto;
+    width: 60%;
+    gap: 1rem;
+    user-select: none;
+}
+
+button.day {
+    color: var(--primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 550;
+    background: var(--secondary);
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+    padding: 0 1rem;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
+    width: 100%;
+}
+
+button.day:hover { filter: brightness(0.975); }
+button.day:active { filter: brightness(0.95); }
+
+body.dark button.day:hover { filter: brightness(1.1); }
+body.dark button.day:active { filter: brightness(1.2); }
+
+
+
+/* 
+    TRASH CAN BUTTON
+*/
+
+#trash {
+    position: absolute;
+    left: -3rem;
+    bottom: -1.5rem;
+    width: 2rem;
+    cursor: pointer;
+    fill: var(--primary);
+    transition: fill 200ms;
+}
+
+#trash:hover { fill: var(--primary2) }
+
+
+
+/* 
+    HELPERS
+*/
+
+.hidden {
+    display: none;
+}
+
+
+
+/* 
+    MEDIA QUERIES
+*/
+
+@media (width < 1000px) {
+    
+    .divider {
+        width: 80%;
+    }
+
+    .dots-container {
+        gap: .5rem;
+        width: 80%;
+    }
+
+    .buttons {
+        gap: .5rem;
+        width: 80%;
+    }
+
+    button.day {
+        /* font-size: 1rem; */
+        padding: 0 .5rem;
+    }
+
+}
+
+@media (width < 700px) {
+
+    /* 
+        CONTAINER
+    */
+
+    .container {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .container section {
+        margin: 0;
+        margin-top: 10rem;
+        margin-left: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 2px 2fr;
+        width: 100%;
+    }
+
+    .divider {
+        position: unset;
+        width: 2px;
+        height: 80%;
+        margin: auto;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+
+
+    /* 
+        DOTS
+    */
+
+    .dots-container {
+        grid-column: 3;
+        grid-row: 1;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        height: 80%;
+        gap: 1rem;
+    }
+
+    .dots {
+        flex-direction: row;
+        margin: 0;
+        gap: 1rem;
+    }
+
+
+
+    /* 
+        BUTTONS
+    */
+
+    .buttons {
+        grid-column: 1;
+        grid-row: 1;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        gap: 1rem;
+        height: 80%;
+    }
+
+    button.day {
+        margin-right: 1rem;
+        padding: .15rem 0;
+    }
+
+
+    /* 
+        TRASH CAN ICON
+    */
+    #trash {
+        position: absolute;
+        left: unset;
+        right: .75rem;
+        bottom: .5rem;
+    }
+
+}
+
+@media (width < 450px) {
+
+    .container > section {
+        margin-left: 1%;
+    }
+
+    .dots {
+        gap: .5rem;
+    }
+
+    .dots svg {
+        width: 20%;
+    }
+
+}
+
